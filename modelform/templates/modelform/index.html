@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model|Form</title>
+</head>
+<body>
+    <header>
+        <h1>Model|Form</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'listprojects' %}">List Projects</a></li>
+                <li><a href="{% url 'addproject' %}">Add Project</a></li>
+            </ul>
+        </nav>
+    </header>
+   <div id="messages">
+        {% for message in messages %}
+        <div class="message">
+            <p>{{ message }}</p>
+            <button onclick="closeMessage(this)">Close</button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        function closeMessage(button) {
+            // Get the parent div of the button (which is the message div)
+            var messageDiv = button.parentElement;
+            // Remove the message div from the DOM
+            messageDiv.parentElement.removeChild(messageDiv);
+        }
+    </script>
+</body>
+</html>
